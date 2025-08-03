@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  
+  /* Custom gaming colors */
+  --cyber-blue: hsl(195, 100%, 50%);
+  --cyber-purple: hsl(267, 42%, 55%);
+  --dark-space: hsl(240, 44%, 9%);
+  --dark-panel: hsl(240, 25%, 18%);
+  --neon-gold: hsl(51, 100%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--dark-space), var(--dark-panel), var(--dark-space));
+    min-height: 100vh;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+}
+
+@layer components {
+  .xp-bar {
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.1) 50%, transparent 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .xp-fill {
+    background: linear-gradient(90deg, var(--cyber-blue), hsl(199, 100%, 40%), var(--cyber-blue));
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .xp-fill-purple {
+    background: linear-gradient(90deg, var(--cyber-purple), hsl(267, 42%, 40%), var(--cyber-purple));
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .xp-fill-green {
+    background: linear-gradient(90deg, hsl(120, 100%, 50%), hsl(120, 100%, 35%), hsl(120, 100%, 50%));
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+    }
+    50% { 
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .shadow-glow-blue {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .shadow-glow-purple {
+    box-shadow: 0 0 20px rgba(139, 95, 191, 0.3);
+  }
+
+  .shadow-glow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  .realm-card {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .realm-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  }
+
+  .task-item {
+    backdrop-filter: blur(10px);
+    background: rgba(26, 26, 46, 0.8);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple), var(--neon-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
